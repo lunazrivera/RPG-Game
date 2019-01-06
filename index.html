@@ -4,14 +4,97 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/assets/css/styles.css">
     <script type="text/javascript" src="/assets/jQuery/jquery-comp.js"></script>
     <title>RPG GAME</title>
 </head>
-<body>
+<body id="body-element">
+    <!-- ------------------------------------------- -->
+    <!-- Start Game Elements -->
+    <div id="start-page">
+        <div id="head-image">
+            <img src="/assets/backgrounds/header.png" alt="">
+        </div>
+
+        <div id="start-button">
+            <button id="play-button" class="btn"><img class="play-image" src="/assets/backgrounds/startbutton.png" alt=""></button>
+            
+        </div>
+        <div id="instruction-container">
+            <h3 class="instruction">PRESS PLAY TO START GAME</h3>
+        </div>
+    </div>
 
 
+    <!-- ------------------------------------------- -->
+    <!-- Character Selection Screen -->
+    <div id="character-page">
+        <div id="head-title">
+            <h1 class="instruction">SELECT YOUR CHARACTER</h1>
+        </div>
 
-<script src="/assets/js/logic.js"></script>
+        <div id="character-screen">
+            <button class="btn" value="110" name="kideri" id="kideri"><img class="character-size" src="/assets/characters/frontsidegood-kideri.png" alt=""></button>
+            <button class="btn" value="140" name="truzo" id="truzo"><img class="character-size" src="/assets/characters/frontsidegood-truzo.png" alt=""></button>
+            <button class="btn" value="120" name="stefa" id="stefa"><img class="character-size" src="/assets/characters/frontsidegood-stefa.png" alt=""></button>
+        </div>
+
+        <div id="character-information">
+            <ul>
+                <li>NAME:KIDERI</li>
+                <LI>LIFE:110</LI>
+            </ul>
+            <ul>
+                <li>NAME:TRUZO</li>
+                <LI>LIFE:140</LI>
+            </ul>
+            <ul>
+                <li>NAME:STEFA</li>
+                <LI>LIFE:120</LI>
+            </ul>
+
+        </div>
+    </div>
+
+    <!-- ------------------------------------------- -->
+    <!-- Fighting Screen -->
+    <div id="fighting-page">
+
+        <div id="fighting-space">
+            <div id="selected-character" class="char-space"><img class="obj" src="/assets/characters/siderightgood-kideri.png" alt=""></div>
+            <div id="selected-villain" class="char-space"><img class="obj" src="/assets/characters/trizio.png" alt=""></div>
+        </div>
+
+        <div id="stats">
+            <div id="character-stats">
+                <ul>
+                    <li>NAME:KIDERI</li>
+                    <li>LIFE:110</li>
+                </ul>
+            </div>
+            
+            <div id="villain-stats">
+                <ul>
+                    <li>NAME:TRUZIO</li>
+                    <li>LIFE:130</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- ------------------------------------------- -->
+    <!-- Winning Screen -->
+
+
+    <!-- ------------------------------------------- -->
+    <!-- Loosing Screen -->
+    <div id="gameover-page">
+        
+    </div>
+
+
+    <script src="/assets/js/logic.js"></script>
 </body>
 </html>

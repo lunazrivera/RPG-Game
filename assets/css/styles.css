@@ -1,0 +1,128 @@
+@font-face {
+    font-family: pixelFont;
+    src: url("VCR_OSD_MONO_1.001.ttf");
+}
+
+* {
+    margin: 0 auto;
+    padding: 5px;
+    border: 1px solid white;
+    font-family: pixelFont;
+}
+
+body {
+    /* Fighting page */
+    /* The background bellow this comment,
+     has to come up when character page is diplayed */
+
+    /* background-image: url(../backgrounds/fighting-scene.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; */
+    /* -------------------------------------------- */
+    background-color: black;
+    margin: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #ffaf02;
+}
+
+.btn {
+    margin: 5px;
+    border: none;
+    color: none;
+    background-color: black;
+}
+
+
+/* -------------------------------------- */
+/* Start Page */
+#start-page {
+    z-index: 1;
+    /* display: none; */
+}
+
+#head-image {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+#start-button {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.play-image {
+    width: 80px;
+    height: 30px;
+}
+
+.instruction {
+    text-align: center;
+    color: #ffaf02;
+}
+
+
+/* -------------------------------------- */
+/* Character Screen */
+#character-page {
+    z-index: 2;
+    display: none;
+}
+#character-screen, #character-information {
+    display: flex;
+    justify-content: space-around;
+}
+
+.character-size {
+    margin: 35px;
+    width: 120px;
+    height: 130px;
+}
+
+
+/* -------------------------------------- */
+/* Fighting Screen */
+
+#fighting-page{
+    min-width: 100%;
+    display: none;
+}
+
+#fighting-space, #stats {
+    display: flex;
+    justify-content: space-between;
+}
+
+.obj{
+    height: 100px;
+}
+
+
+
+.char-space {
+    margin-top: 160px
+}
+
+#character-stats, #villain-stats {
+    border-top: 5px solid black;
+}
+
+
+
+
+
+/* -------------------------------------- */
+/* Winning Screen */
+
+
+
+
+/* -------------------------------------- */
+/* Gameover Screen */
+#gameover-page {
+    display:none;
+}
