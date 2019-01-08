@@ -47,7 +47,7 @@
         $("#character-page").css("display", "none");
         $("#fighting-page").css("display", "inline-block");
         $("body").addClass("body-element");
-        $("#fighting-character").attr("src", "/assets/characters/siderightgood-kideri.png");
+        $("#fighting-character").attr("src", "assets/characters/siderightgood-kideri.png");
     });
     
     $("#truzo").on("click", function() {
@@ -55,7 +55,7 @@
         $("#character-page").css("display", "none");
         $("#fighting-page").css("display", "inline-block");
         $("body").addClass("body-element");
-        $("#fighting-character").attr("src", "/assets/characters/siderightgood-truzo.png");
+        $("#fighting-character").attr("src", "assets/characters/siderightgood-truzo.png");
         
     });
     
@@ -64,7 +64,7 @@
         $("#character-page").css("display", "none");
         $("#fighting-page").css("display", "inline-block");
         $("body").addClass("body-element");
-        $("#fighting-character").attr("src", "/assets/characters/siderightgood-stefa.png");
+        $("#fighting-character").attr("src", "assets/characters/siderightgood-stefa.png");
         
     });
     // ----------------------------------------
