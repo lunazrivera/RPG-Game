@@ -8,7 +8,7 @@
     <script type="text/javascript" src="/assets/jQuery/jquery-comp.js"></script>
     <title>RPG GAME</title>
 </head>
-<body id="body-element">
+<body>
     <!-- ------------------------------------------- -->
     <!-- Start Game Elements -->
     <div id="start-page">
@@ -61,24 +61,28 @@
     <div id="fighting-page">
 
         <div id="fighting-space">
-            <div id="selected-character" class="char-space"><img class="obj" src="/assets/characters/siderightgood-kideri.png" alt=""></div>
+            <div id="selected-character" class="char-space"><img id="fighting-character" class="obj" alt=""></div>
             <div id="selected-villain" class="char-space"><img class="obj" src="/assets/characters/trizio.png" alt=""></div>
         </div>
 
         <div id="stats">
             <div id="character-stats">
                 <ul>
-                    <li>NAME:KIDERI</li>
-                    <li>LIFE:110</li>
+                    <li>NAME: <span id="character-name"></span></li>
+                    <li>LIFE: <span id="character-life"></span></li>
                 </ul>
             </div>
             
             <div id="villain-stats">
                 <ul>
-                    <li>NAME:TRUZIO</li>
-                    <li>LIFE:130</li>
+                    <li>NAME: <span id="villain-name"></span></li>
+                    <li>LIFE: <span id="villain-life"></span></li>
                 </ul>
             </div>
+        </div>
+
+        <div id="moves">
+            <button id="attackbutton" class="btn"><img src="/assets/backgrounds/Attack.png" alt="" ></button>
         </div>
 
     </div>
@@ -93,8 +97,9 @@
     <div id="gameover-page">
         
     </div>
-
+    <!-- Here are my audio elements one with loop and one without it. -->
     <audio id="audio-fantasy" src="/assets/song/Fantasy.mp3" loop></audio>
+    <audio id="audio-play" src="/assets/song/play.wav"></audio>
     <script src="/assets/js/logic.js"></script>
 </body>
 </html>
