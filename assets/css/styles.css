@@ -11,13 +11,13 @@
 
 }
 
-.body-element{
+.body-element {
     background-image: url(../backgrounds/fighting-scene.png);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-
 }
+
 body {
     background-color: black;
     margin: 0px;
@@ -85,7 +85,6 @@ body {
 
 /* -------------------------------------- */
 /* Fighting Screen */
-
 #fighting-page{
     min-width: 100%;
     display: none;
@@ -96,6 +95,31 @@ body {
     display: flex;
     justify-content: space-between;
 }
+
+#selected-character, #character-stats {
+    position: relative;
+    left: -600px;
+}
+
+#selected-villain, #villain-stats {
+    position: relative;
+    left: 600px;
+}
+
+.selected-villain2 {
+    position: relative;
+    left: 600px;
+}
+
+.selected-villain3, .villain-stats3 {
+    position: relative;
+    left: 600px;
+}
+
+/* #moves {
+    position: relative;
+    top: 800px;
+} */
 
 .obj{
     height: 100px;
@@ -115,18 +139,35 @@ body {
     display: flex;
     justify-content: center;
 }
-
-
-
-
 /* -------------------------------------- */
 /* Winning Screen */
-
-
-
 
 /* -------------------------------------- */
 /* Gameover Screen */
 #gameover-page {
     display:none;
+}
+
+.img-size {
+    
+}
+
+#gameover-image-holder {
+    display: flex;
+    justify-content: center;
+}
+
+.newgame-holder {
+    display: flex;
+    justify-content:  center;
+}
+
+.newgame-image {
+    margin: 30px;
+    width: 130px;
+    height: 30px;
+}
+
+#winning-page {
+    display: none;
 }

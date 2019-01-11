@@ -56,13 +56,14 @@
         </div>
     </div>
 
+
     <!-- ------------------------------------------- -->
     <!-- Fighting Screen -->
     <div id="fighting-page">
 
         <div id="fighting-space">
             <div id="selected-character" class="char-space"><img id="fighting-character" class="obj" alt=""></div>
-            <div id="selected-villain" class="char-space"><img class="obj" src="assets/characters/trizio.png" alt=""></div>
+            <div id="selected-villain" class="char-space"><img id="villain-character" class="obj" alt=""></div>
         </div>
 
         <div id="stats">
@@ -90,13 +91,28 @@
 
     <!-- ------------------------------------------- -->
     <!-- Winning Screen -->
+    <div id="winning-page">
+        <img src="assets/backgrounds/Youwin-thistime copy.png" alt="">
+
+        <div class="newgame-holder">
+            <button  class="btn newgame-button"><img class="newgame-image" src="assets/backgrounds/newgame.png" alt=""></button>
+        </div>
+    </div>
 
 
     <!-- ------------------------------------------- -->
     <!-- Loosing Screen -->
     <div id="gameover-page">
-        
+        <div id="gameover-image-holder">
+            <img src="assets/backgrounds/gameover.png" class="img-size" alt="" id="gameover-image">
+        </div>
+
+        <div class="newgame-holder">
+            <button  class="btn newgame-button"><img class="newgame-image" src="assets/backgrounds/newgame.png" alt=""></button>
+        </div>
     </div>
+
+
     <!-- Here are my audio elements one with loop and one without it. -->
     <audio id="audio-fantasy" src="assets/song/Fantasy.mp3" loop></audio>
     <audio id="audio-play" src="assets/song/play.wav"></audio>
