@@ -6,7 +6,7 @@
 * {
     margin: 0 auto;
     padding: 5px;
-    border: 1px solid white;
+    /* border: 1px solid white; */
     font-family: pixelFont;
 
 }
@@ -80,6 +80,13 @@ body {
     margin: 35px;
     width: 120px;
     height: 130px;
+}
+#points {
+    display: flex;
+    justify-content:  space-between;
+}
+#losses, #wins {
+    display: inline-block;
 }
 
 
@@ -170,4 +177,9 @@ body {
 
 #winning-page {
     display: none;
+}
+
+#youwin-thistime {
+    width: 440px ;
+    height: 410px;
 }

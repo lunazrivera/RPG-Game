@@ -15,12 +15,11 @@
     // ----------------------------------------
     var audioElement = document.getElementById("audio-fantasy");
     var audioElement2 = document.getElementById("audio-play");
-    var startPage;
-    var characterPage;
-    var winningPage;
-    var loosingPage;
     var getAttack = false;
     var getVillainAttack = false;
+
+    var winPoints = 0;
+    var loosesPoints = 0;
 
     var lagozoIn = false;
     var badrioIn = false;
@@ -33,7 +32,8 @@
     var stefaIn = false;
 
 
-
+    $("#losses").text(loosesPoints);
+    $("#wins").text(winPoints);
     // ----------------------------------------
     // Global bindings | Hero objects
     // ----------------------------------------
@@ -41,7 +41,7 @@
         name: "KIDERI",
         life: 110,
         attack: function() {
-            this.att = Math.floor(Math.random() * 25);
+            this.att = 50 + Math.floor(Math.random() * 500);
         }
     
     }
@@ -49,15 +49,14 @@
         name: "TRUZO",
         life: 140,
         attack: function() {
-            this.att = Math.floor(Math.random() * 25);
-           
+            this.att = 5 + Math.floor(Math.random() * 25);
         }
     }
     var stefa = {
         name: "STEFA",
         life: 120,
         attack: function() {
-            this.att = Math.floor(Math.random() * 25);
+            this.att = 15 + Math.floor(Math.random() * 30);
         }
     }
 
@@ -70,21 +69,21 @@
         name: "LAGOZO",
         life: 100,
         attack: function () {
-            this.att = Math.floor(Math.random() * 25)
+            this.att = 10 + Math.floor(Math.random() * 20)
         } 
     }
     var badrio = {
         name: "BADRIO",
         life: 120,
         attack: function () {
-            this.att = Math.floor(Math.random() * 25)
+            this.att = 13 + Math.floor(Math.random() * 25)
         } 
     }
     var trizio = {
         name: "TRIZIO",
         life: 130,
         attack: function () {
-            this.att = Math.floor(Math.random() * 25)
+            this.att = 15 + Math.floor(Math.random() * 30)
         } 
     }
 
@@ -132,14 +131,20 @@
     $("#attackbutton").on("click", function() {
         characterAttack();
         if (kideri.life <= 0 || truzo.life <= 0 || stefa.life <= 0) {
-            
+            $("#losses").text(loosesPoints++);
+    
             audioElement.pause();
             $("#fighting-page").css("display", "none");
             $("body").removeClass("body-element");
             $("#gameover-page").css("display", "inline-block");
         }
         else if (trizio.life <= 0 ){
-
+            $("#wins").text(winPoints++);
+            trizio = false;
+            audioElement.pause();
+            $("#fighting-page").css("display", "none");
+            $("body").removeClass("body-element");
+            $("#winning-page").css("display", "inline-block");
         }
     });
 
@@ -184,6 +189,10 @@
         $("#character-name").text(truzo.name);
         $("#character-life").text(truzo.life);
         $("#selected-character, #character-stats").animate({left: 0}, 1000);
+        if(!getAttack) {
+            getAttack = true;
+            truzo.attack();
+        } 
         populateVillains();
     }
 
@@ -197,6 +206,10 @@
         $("#character-name").text(stefa.name);
         $("#character-life").text(stefa.life);
         $("#selected-character, #character-stats").animate({left: 0}, 500);
+        if(!getAttack) {
+            getAttack = true;
+            stefa.attack();
+        } 
         populateVillains();
     }
 
@@ -268,8 +281,8 @@
 
                         if (!getVillainAttack) {
                             getVillainAttack = true;
-                            badrio.attack();
-                            console.log("This is Badrio's attack: " + badrio.att);
+                            trizio.attack();
+                            console.log("This is Trizio's attack: " + trizio.att);
                         }
                     });
                     
@@ -280,17 +293,135 @@
                 kideri.att += 5
                 $("#villain-life").html(trizio.life -= kideri.att);
                 $("#character-life").html(kideri.life -= badrio.att);
-                if (trizio <= 0) {
-                    trizio === false;
-                    // characterWon();
-                }
             }
         }
         else if (truzoIn === true) {
-            
+            if (lagozoIn === true) { 
+                truzo.att += 5
+                console.log("This is Truzo's attack: " + truzo.att);
+                $("#selected-character").animate({left: 25}, 200, function() {
+                    $("#selected-character").animate({left: 0}, 200)
+                })
+                $("#villain-life").html(lagozo.life -= truzo.att);
+                // setTimeout(villainAttack, 3000);
+                $("#character-life").html(truzo.life -= lagozo.att);
+                if (lagozo.life <= 0) {
+                    getVillainAttack = false;
+                    lagozoIn = false;
+                    badrioIn = true;
+                    // $("#selected-villain", "#villain-stats").addClass("selected-villain2");
+
+                    $("#selected-villain, #villain-stats").animate({left: 600}, 500, function() {
+                        $("#villain-character").attr("src", "assets/characters/badrio.png");
+                        $("#villain-name").text(badrio.name);
+                        $("#villain-life").html(badrio.life);
+                        $("#selected-villain, #villain-stats").animate({left: 0}, 1000);
+
+                        if (!getVillainAttack) {
+                            getVillainAttack = true;
+                            badrio.attack();
+                            console.log("This is Badrio's attack: " + badrio.att);
+                        }
+                    });
+                }
+            }
+            else if ( badrioIn === true) {
+                truzo.att += 5
+                $("#selected-character").animate({left: 25}, 200, function() {
+                    $("#selected-character").animate({left: 0}, 200)
+                })
+                $("#villain-life").html(badrio.life -= truzo.att);
+                $("#character-life").html(truzo.life -= badrio.att);
+                if (badrio.life <= 0) {
+                    getVillainAttack = false;
+                    badrioIn = false;
+                    trizioIn = true;
+                    $("#selected-villain, #villain-stats").animate({left: 600}, 500, function() {
+                        $("#villain-character").attr("src", "assets/characters/trizio.png");
+                        $("#villain-name").text(trizio.name);
+                        $("#villain-life").html(trizio.life);
+                        $("#selected-villain, #villain-stats").animate({left: 0}, 1000);
+
+                        if (!getVillainAttack) {
+                            getVillainAttack = true;
+                            trizio.attack();
+                            console.log("This is Trizio's attack: " + trizio.att);
+                        }
+                    });
+                    
+
+                }
+            }
+            else if ( trizioIn === true) {
+                truzo.att += 5
+                $("#villain-life").html(trizio.life -= truzo.att);
+                $("#character-life").html(truzo.life -= badrio.att);
+            }
         }
         else if (stefaIn === true) {
-            
+            if (lagozoIn === true) { 
+                stefa.att += 5
+                console.log("This is Stefa's attack: " + stefa.att);
+                $("#selected-character").animate({left: 25}, 200, function() {
+                    $("#selected-character").animate({left: 0}, 200)
+                })
+                $("#villain-life").html(lagozo.life -= stefa.att);
+                // setTimeout(villainAttack, 3000);
+                $("#character-life").html(stefa.life -= lagozo.att);
+                if (lagozo.life <= 0) {
+                    getVillainAttack = false;
+                    lagozoIn = false;
+                    badrioIn = true;
+                    // $("#selected-villain", "#villain-stats").addClass("selected-villain2");
+
+                    $("#selected-villain, #villain-stats").animate({left: 600}, 500, function() {
+                        $("#villain-character").attr("src", "assets/characters/badrio.png");
+                        $("#villain-name").text(badrio.name);
+                        $("#villain-life").html(badrio.life);
+                        $("#selected-villain, #villain-stats").animate({left: 0}, 1000);
+
+                        if (!getVillainAttack) {
+                            getVillainAttack = true;
+                            badrio.attack();
+                            console.log("This is Badrio's attack: " + badrio.att);
+                        }
+                    });
+                }
+            }
+            else if ( badrioIn === true) {
+                stefa.att += 5
+                console.log("This is Stefa's attack: " + stefa.att);
+                $("#selected-character").animate({left: 25}, 200, function() {
+                    $("#selected-character").animate({left: 0}, 200)
+                })
+                $("#villain-life").html(badrio.life -= stefa.att);
+                $("#character-life").html(stefa.life -= badrio.att);
+                if (badrio.life <= 0) {
+                    getVillainAttack = false;
+                    badrioIn = false;
+                    trizioIn = true;
+                    $("#selected-villain, #villain-stats").animate({left: 600}, 500, function() {
+                        $("#villain-character").attr("src", "assets/characters/trizio.png");
+                        $("#villain-name").text(trizio.name);
+                        $("#villain-life").html(trizio.life);
+                        $("#selected-villain, #villain-stats").animate({left: 0}, 1000);
+
+                        if (!getVillainAttack) {
+                            getVillainAttack = true;
+                            trizio.attack();
+                            console.log("This is Trizio's attack: " + trizio.att);
+                        }
+                    });
+                    
+
+                }
+            }
+            else if ( trizioIn === true) {
+                console.log("This is Stefa's attack: " + stefa.att);
+                stefa.att += 5
+                $("#villain-life").html(trizio.life -= stefa.att);
+                $("#character-life").html(stefa.life -= badrio.att);
+            }
         }
     
     }
@@ -304,6 +435,9 @@
         }
     }
 
+    function characterWon() {
+
+    }
 
     function newGame() {
             kideri.life = 110;
@@ -324,7 +458,7 @@
             kideriIn = false;
             truzoIn = false;
             stefaIn = false;
-
+            $("#winning-page").css("display", "none");
             $("#gameover-page").css("display", "none");
             $("#character-page").css("display", "inline-block");
     }
