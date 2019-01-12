@@ -255,7 +255,7 @@
                         setTimeout(function() {
                             switchingVillain = false;
                         }, 1100);
-                        $("#villain-character").attr("src", "assets/characters/badrio.png");
+                        $("#villain-character").attr("src", "assets/characters/Badrio.png");
                         $("#villain-name").text(badrio.name);
                         $("#villain-life").html(badrio.life);
                         $("#selected-villain, #villain-stats").animate({left: 0}, 1000);
@@ -326,7 +326,7 @@
                         setTimeout(function() {
                             switchingVillain = false;
                         }, 1100);
-                        $("#villain-character").attr("src", "assets/characters/badrio.png");
+                        $("#villain-character").attr("src", "assets/characters/Badrio.png");
                         $("#villain-name").text(badrio.name);
                         $("#villain-life").html(badrio.life);
                         $("#selected-villain, #villain-stats").animate({left: 0}, 1000);
@@ -397,7 +397,7 @@
                         setTimeout(function() {
                             switchingVillain = false;
                         }, 1100);
-                        $("#villain-character").attr("src", "assets/characters/badrio.png");
+                        $("#villain-character").attr("src", "assets/characters/Badrio.png");
                         $("#villain-name").text(badrio.name);
                         $("#villain-life").html(badrio.life);
                         $("#selected-villain, #villain-stats").animate({left: 0}, 1000);
