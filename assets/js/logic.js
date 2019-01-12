@@ -24,6 +24,7 @@
     var lagozoIn = false;
     var badrioIn = false;
     var truzioIn = false;
+    var switchingVillain = false;
 
     var isVillain = false;
 
@@ -41,7 +42,7 @@
         name: "KIDERI",
         life: 110,
         attack: function() {
-            this.att = 50 + Math.floor(Math.random() * 500);
+            this.att = 20 + Math.floor(Math.random() * 40);
         }
     
     }
@@ -232,7 +233,9 @@
 
 
     function characterAttack() {
-        if(kideriIn === true) {
+        if (!switchingVillain) {
+
+            if(kideriIn === true) {
             if (lagozoIn === true) { 
                 kideri.att += 5
                 console.log("This is Kideri's attack: " + kideri.att);
@@ -249,6 +252,10 @@
                     // $("#selected-villain", "#villain-stats").addClass("selected-villain2");
 
                     $("#selected-villain, #villain-stats").animate({left: 600}, 500, function() {
+                        switchingVillain = true;
+                        setTimeout(function() {
+                            switchingVillain = false;
+                        }, 1100);
                         $("#villain-character").attr("src", "assets/characters/badrio.png");
                         $("#villain-name").text(badrio.name);
                         $("#villain-life").html(badrio.life);
@@ -274,6 +281,10 @@
                     badrioIn = false;
                     trizioIn = true;
                     $("#selected-villain, #villain-stats").animate({left: 600}, 500, function() {
+                        switchingVillain = true;
+                        setTimeout(function() {
+                            switchingVillain = false;
+                        }, 1100);
                         $("#villain-character").attr("src", "assets/characters/trizio.png");
                         $("#villain-name").text(trizio.name);
                         $("#villain-life").html(trizio.life);
@@ -312,6 +323,10 @@
                     // $("#selected-villain", "#villain-stats").addClass("selected-villain2");
 
                     $("#selected-villain, #villain-stats").animate({left: 600}, 500, function() {
+                        switchingVillain = true;
+                        setTimeout(function() {
+                            switchingVillain = false;
+                        }, 1100);
                         $("#villain-character").attr("src", "assets/characters/badrio.png");
                         $("#villain-name").text(badrio.name);
                         $("#villain-life").html(badrio.life);
@@ -337,6 +352,10 @@
                     badrioIn = false;
                     trizioIn = true;
                     $("#selected-villain, #villain-stats").animate({left: 600}, 500, function() {
+                        switchingVillain = true;
+                        setTimeout(function() {
+                            switchingVillain = false;
+                        }, 1100);
                         $("#villain-character").attr("src", "assets/characters/trizio.png");
                         $("#villain-name").text(trizio.name);
                         $("#villain-life").html(trizio.life);
@@ -375,6 +394,10 @@
                     // $("#selected-villain", "#villain-stats").addClass("selected-villain2");
 
                     $("#selected-villain, #villain-stats").animate({left: 600}, 500, function() {
+                        switchingVillain = true;
+                        setTimeout(function() {
+                            switchingVillain = false;
+                        }, 1100);
                         $("#villain-character").attr("src", "assets/characters/badrio.png");
                         $("#villain-name").text(badrio.name);
                         $("#villain-life").html(badrio.life);
@@ -401,6 +424,10 @@
                     badrioIn = false;
                     trizioIn = true;
                     $("#selected-villain, #villain-stats").animate({left: 600}, 500, function() {
+                        switchingVillain = true;
+                        setTimeout(function() {
+                            switchingVillain = false;
+                        }, 1100);
                         $("#villain-character").attr("src", "assets/characters/trizio.png");
                         $("#villain-name").text(trizio.name);
                         $("#villain-life").html(trizio.life);
@@ -423,17 +450,17 @@
                 $("#character-life").html(stefa.life -= badrio.att);
             }
         }
-    
+     }
     }
 
 
-    function villainAttack() {
-        if (lagozoIn === true) {
-            if(kideriIn === true) {
-            $("#character-life").html(kideri.life -= lagozo.att)
-            }
-        }
-    }
+    // function villainAttack() {
+    //     if (lagozoIn === true) {
+    //         if(kideriIn === true) {
+    //         $("#character-life").html(kideri.life -= lagozo.att)
+    //         }
+    //     }
+    // }
 
     function characterWon() {
 
