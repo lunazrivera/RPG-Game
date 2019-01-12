@@ -18,8 +18,8 @@
     var getAttack = false;
     var getVillainAttack = false;
 
-    var winPoints = 0;
-    var loosesPoints = 0;
+    var winPoints = 1;
+    var loosesPoints = 1;
 
     var lagozoIn = false;
     var badrioIn = false;
@@ -33,8 +33,7 @@
     var stefaIn = false;
 
 
-    $("#losses").text(loosesPoints);
-    $("#wins").text(winPoints);
+
     // ----------------------------------------
     // Global bindings | Hero objects
     // ----------------------------------------
